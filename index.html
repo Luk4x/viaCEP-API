@@ -8,15 +8,16 @@
         <link rel="shortcut icon" href="./favicon-luk4x.ico" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="./css/style.css" />
         <title>ViaCEP</title>
-
-        <!-- https://viacep.com.br/ws/28740000/json/ -->
     </head>
     <body>
         <main>
-            <label for="cepIn">
-                <h1>Insira seu CEP</h1>
-            </label>
-            <input type="number" name="cepIn" id="cepIn" />
+            <section class="catch-data">
+                <label for="cep-in">
+                    <h1>Insira seu CEP</h1>
+                </label>
+                <input type="number" name="cep-in" id="cep-in" />
+            </section>
+            <section class="result"></section>
         </main>
 
         <script src="./js/jquery-3.6.0.min.js"></script>
