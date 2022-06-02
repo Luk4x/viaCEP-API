@@ -1,19 +1,36 @@
 const cepIn = document.getElementById('cep-in');
 const secResult = document.querySelector('.result');
 
-const requestCEP = async () => {
-    try {
-        const cepData = await fetch(`https://viacep.com.br/ws/${cepIn.value}/json/`).then(res => res.json());
-        console.log(cepData);
+cepIn.addEventListener('input', () => {
+    $.ajax({
+        url: `https://viacep.com.br/ws/${cepIn.value}/json/`,
+        type: 'GET',
+        success: cepData => {
+            $('.result').empty();
 
-        const displayCEPData = document.createElement('p');
-        displayCEPData.innerText = Object.entries(cepData);
-        console.log(displayCEPData);
-        
-        secResult.appendChild(displayCEPData);
-    } catch (err) {
-        console.log(`Error: ${err}`);
-    }
-};
+            console.log(cepData);
+            if (!cepData.erro) {
+                for (let data in cepData) {
+                    if (cepData[data]) {
+                        const cepDataParagraph = document.createElement('p');
+                        cepDataParagraph.innerText = `${data.toUpperCase()}: ${cepData[data]}`;
+                        secResult.appendChild(cepDataParagraph);
+                    }
+                }
+            }
 
-cepIn.addEventListener('input', requestCEP);
+            // show results when user finish type the cep
+            $(() => {
+                $('.result').show();
+            });
+        },
+        error: error => {
+            console.log(error);
+
+            // hide results while user is typing
+            $(() => {
+                $('.result').hide();
+            });
+        }
+    });
+});
