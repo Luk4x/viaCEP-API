@@ -27,10 +27,19 @@ cepIn.addEventListener('input', () => {
         error: error => {
             console.log(error);
 
-            // hide results while user is typing
-            $(() => {
-                $('.result').hide();
-            });
+            $('.result').empty();
+
+            if (cepIn.value.length >= 8) {
+                // error message
+                const errorParagraph = document.createElement('p');
+                errorParagraph.innerText = 'Este CEP não existe.';
+                secResult.appendChild(errorParagraph);
+            } else {
+                // hide results while user is typing
+                $(() => {
+                    $('.result').hide();
+                });
+            }
         }
     });
 });
