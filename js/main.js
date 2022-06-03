@@ -17,6 +17,10 @@ cepIn.addEventListener('input', () => {
                         secResult.appendChild(cepDataParagraph);
                     }
                 }
+            } else {
+                const errorParagraph = document.createElement('p');
+                errorParagraph.innerText = 'Este CEP não existe.';
+                secResult.appendChild(errorParagraph);
             }
 
             // show results when user finish type the cep
@@ -24,12 +28,12 @@ cepIn.addEventListener('input', () => {
                 $('.result').show();
             });
         },
-        error: error => {
-            console.log(error);
+        error: message => {
+            console.log(message);
 
             $('.result').empty();
 
-            if (cepIn.value.length >= 8) {
+            if (cepIn.value.length > 8) {
                 // error message
                 const errorParagraph = document.createElement('p');
                 errorParagraph.innerText = 'Este CEP não existe.';
