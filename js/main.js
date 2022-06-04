@@ -1,9 +1,14 @@
-const cepIn = document.getElementById('cep-in');
-const secResult = document.querySelector('.result');
+$('#cep-in').focus(() => {
+    $('.bx-search').toggleClass('bx-search-active');
+});
 
-cepIn.addEventListener('input', () => {
+$('#cep-in').focusout(() => {
+    $('.bx-search').toggleClass('bx-search-active');
+});
+
+$('#cep-in').on('input', () => {
     $.ajax({
-        url: `https://viacep.com.br/ws/${cepIn.value}/json/`,
+        url: `https://viacep.com.br/ws/${$('#cep-in')[0].value}/json/`,
         type: 'GET',
         success: cepData => {
             $('.result').empty();
@@ -14,13 +19,13 @@ cepIn.addEventListener('input', () => {
                     if (cepData[data]) {
                         const cepDataParagraph = document.createElement('p');
                         cepDataParagraph.innerText = `${data.toUpperCase()}: ${cepData[data]}`;
-                        secResult.appendChild(cepDataParagraph);
+                        $('.result').append(cepDataParagraph);
                     }
                 }
             } else {
                 const errorParagraph = document.createElement('p');
                 errorParagraph.innerText = 'Este CEP não existe.';
-                secResult.appendChild(errorParagraph);
+                $('.result').append(errorParagraph);
             }
 
             // show results when user finish type the cep
@@ -28,16 +33,14 @@ cepIn.addEventListener('input', () => {
                 $('.result').show();
             });
         },
-        error: message => {
-            console.log(message);
-
+        error: () => {
             $('.result').empty();
 
-            if (cepIn.value.length > 8) {
+            if ($('#cep-in')[0].value.length > 8) {
                 // error message
                 const errorParagraph = document.createElement('p');
                 errorParagraph.innerText = 'Este CEP não existe.';
-                secResult.appendChild(errorParagraph);
+                $('.result').append(errorParagraph);
             } else {
                 // hide results while user is typing
                 $(() => {

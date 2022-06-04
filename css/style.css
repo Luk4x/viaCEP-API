@@ -1,0 +1,71 @@
+* {
+    border: none;
+    outline: none;
+}
+
+body {
+    font-family: 'KoHo', sans-serif;
+}
+
+:root {
+    --cl1: #c1cad6;
+    --cl2: #323031;
+    --cl3: #ffc857;
+    --cl4: #db3a34;
+    --cl5: #084c61;
+}
+main {
+    background: linear-gradient(125deg, #db3a34, #084c61);
+    height: 100vh;
+}
+
+.catch-data {
+    padding-top: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+#cep-in {
+    max-width: 200px;
+    background: transparent;
+    color: var(--cl1);
+    font-size: 38px;
+    border-bottom: 1px solid #c1cad67e;
+    text-align: center;
+    transition: 0.5s ease-in-out;
+    position: relative;
+    left: -33px;
+}
+
+.bx-search {
+    color: var(--cl1);
+    font-size: 66px;
+    position: relative;
+    transition: 0.5s ease-in-out;
+    top: 5px;
+    left: -33px;
+}
+
+#cep-in::placeholder {
+    color: #c1cad67e;
+}
+
+#cep-in::-webkit-outer-spin-button,
+#cep-in::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#cep-in[type='number'] {
+    -moz-appearance: textfield;
+}
+
+#cep-in:focus {
+    border-bottom: 1px solid var(--cl3);
+}
+
+.bx-search-active {
+    color: var(--cl3);
+}
