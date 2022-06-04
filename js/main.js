@@ -6,12 +6,30 @@ $('#cep-in').focusout(() => {
     $('.bx-search').toggleClass('bx-search-active');
 });
 
+$(() => {
+    $('.spinner-border').hide();
+});
+
 $('#cep-in').on('input', () => {
+    console.log($('#cep-in')[0].value.length);
+    if ($('#cep-in')[0].value.length !== 0) {
+        $(() => {
+            $('.spinner-border').show();
+        });
+    } else {
+        $(() => {
+            $('.spinner-border').hide();
+        });
+    }
+
     $.ajax({
         url: `https://viacep.com.br/ws/${$('#cep-in')[0].value}/json/`,
         type: 'GET',
         success: cepData => {
             $('.result').empty();
+            $(() => {
+                $('.spinner-border').hide();
+            });
 
             console.log(cepData);
             if (!cepData.erro) {
@@ -24,7 +42,7 @@ $('#cep-in').on('input', () => {
                 }
             } else {
                 const errorParagraph = document.createElement('p');
-                errorParagraph.innerText = 'Este CEP não existe.';
+                errorParagraph.innerText = 'Este CEP não foi encontrado.';
                 $('.result').append(errorParagraph);
             }
 
@@ -39,8 +57,12 @@ $('#cep-in').on('input', () => {
             if ($('#cep-in')[0].value.length > 8) {
                 // error message
                 const errorParagraph = document.createElement('p');
-                errorParagraph.innerText = 'Este CEP não existe.';
+                errorParagraph.innerText = 'Este CEP é inválido.';
                 $('.result').append(errorParagraph);
+
+                $(() => {
+                    $('.spinner-border').hide();
+                });
             } else {
                 // hide results while user is typing
                 $(() => {

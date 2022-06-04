@@ -19,10 +19,15 @@
     <body>
         <main>
             <section class="catch-data">
-                <label for="cep-in">
-                    <i class="bx bx-search"></i>
-                </label>
-                <input type="number" autofocus name="cep-in" id="cep-in" placeholder="28470000" />
+                <div class="user-input">
+                    <label for="cep-in">
+                        <i class="bx bx-search"></i>
+                    </label>
+                    <input type="number" name="cep-in" id="cep-in" placeholder="28470000" />
+                </div>
+                <div class="spinner-border text-dark" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </section>
             <section class="result"></section>
         </main>
