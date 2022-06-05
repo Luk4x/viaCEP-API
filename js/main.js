@@ -1,3 +1,9 @@
+$(document.documentElement).keypress(keyP => {
+    if (keyP.key == ';' || keyP.key === '/') {
+        $('#cep-in').focus();
+    }
+});
+
 $('#cep-in').focus(() => {
     $('.bx-search').toggleClass('bx-search-active');
 });
