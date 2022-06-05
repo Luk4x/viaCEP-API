@@ -11,7 +11,7 @@ $(() => {
 });
 
 $('#cep-in').on('input', () => {
-    console.log($('#cep-in')[0].value.length);
+    // show bootstrap spinner
     if ($('#cep-in')[0].value.length !== 0) {
         $(() => {
             $('.spinner-border').show();
@@ -21,6 +21,9 @@ $('#cep-in').on('input', () => {
             $('.spinner-border').hide();
         });
     }
+
+    $('.catch-data').removeClass('catch-data-active');
+    $('.user-input').removeClass('user-input-active');
 
     $.ajax({
         url: `https://viacep.com.br/ws/${$('#cep-in')[0].value}/json/`,
@@ -33,10 +36,15 @@ $('#cep-in').on('input', () => {
 
             console.log(cepData);
             if (!cepData.erro) {
+                // arranging the area for the data
+                $('.catch-data').toggleClass('catch-data-active');
+                $('.user-input').toggleClass('user-input-active');
+
+                // showing cep data
                 for (let data in cepData) {
                     if (cepData[data]) {
                         const cepDataParagraph = document.createElement('p');
-                        cepDataParagraph.innerText = `${data.toUpperCase()}: ${cepData[data]}`;
+                        cepDataParagraph.innerHTML = `<b>${data.toUpperCase()}</b>: ${cepData[data]}`;
                         $('.result').append(cepDataParagraph);
                     }
                 }

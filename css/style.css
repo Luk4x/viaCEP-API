@@ -20,41 +20,61 @@ main {
 }
 
 .catch-data {
-    padding-top: 38vh;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 25px;
+    padding: 6vh 0 10vh;
+    transform: translateY(34vh);
+    -webkit-transition: all 0.5s 0.2s ease-in-out;
+    -moz-transition: all 0.5s 0.2s ease-in-out;
+    -o-transition: all 0.5s 0.2s ease-in-out;
+    transition: all 0.5s 0.2s ease-in-out;
+}
+
+.catch-data-active {
+    transform: translateY(0);
 }
 
 .user-input {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 4px;
+    transform: scale(2.2);
+    -webkit-transition: all 0.5s 0.2s ease-in-out;
+    -moz-transition: all 0.5s 0.2s ease-in-out;
+    -o-transition: all 0.5s 0.2s ease-in-out;
+    transition: all 0.5s 0.2s ease-in-out;
+}
+
+.user-input-active {
+    transform: scale(1.4);
 }
 
 #cep-in {
     max-width: 200px;
     background: transparent;
     color: var(--cl1);
-    font-size: 38px;
+    font-size: 32px;
     border-bottom: 1px solid #c1cad67e;
     text-align: center;
     transition: 0.5s ease-in-out;
     position: relative;
-    left: -33px;
+    left: -28px;
 }
 
 .bx-search {
     color: var(--cl1);
-    font-size: 66px;
+    font-size: 56px;
     position: relative;
     transition: 0.5s ease-in-out;
     top: 5px;
-    left: -33px;
+    left: -28px;
 }
 
 .bx-search-active {
@@ -80,6 +100,7 @@ main {
 }
 
 .spinner-border {
-    width: 50px;
-    height: 50px;
+    margin-top: 24px;
+    width: 80px;
+    height: 80px;
 }
