@@ -20,7 +20,7 @@ $('#cep-in').on('input', () => {
     $('.result').hide();
 
     // show bootstrap spinner
-    if ($('#cep-in')[0].value.length !== 0) {
+    if ($('#cep-in').val().length !== 0) {
         $(() => {
             $('.spinner-border').show();
         });
@@ -34,7 +34,7 @@ $('#cep-in').on('input', () => {
     $('.user-input').removeClass('user-input-active');
 
     $.ajax({
-        url: `https://viacep.com.br/ws/${$('#cep-in')[0].value}/json/`,
+        url: `https://viacep.com.br/ws/${$('#cep-in').val()}/json/`,
         type: 'GET',
         success: cepData => {
             $('.result').empty();
@@ -70,7 +70,7 @@ $('#cep-in').on('input', () => {
         error: () => {
             $('.result').empty();
 
-            if ($('#cep-in')[0].value.length > 8) {
+            if ($('#cep-in').val().length > 8) {
                 // error message
                 const errorParagraph = document.createElement('p');
                 errorParagraph.innerText = 'Este CEP é inválido.';
