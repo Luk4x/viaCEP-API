@@ -11,6 +11,8 @@ $(() => {
 });
 
 $('#cep-in').on('input', () => {
+    $('.result').hide();
+
     // show bootstrap spinner
     if ($('#cep-in')[0].value.length !== 0) {
         $(() => {
@@ -30,11 +32,8 @@ $('#cep-in').on('input', () => {
         type: 'GET',
         success: cepData => {
             $('.result').empty();
-            $(() => {
-                $('.spinner-border').hide();
-            });
 
-            console.log(cepData);
+            let resultShowTime = 0;
             if (!cepData.erro) {
                 // arranging the area for the data
                 $('.catch-data').toggleClass('catch-data-active');
@@ -48,16 +47,19 @@ $('#cep-in').on('input', () => {
                         $('.result').append(cepDataParagraph);
                     }
                 }
+                resultShowTime = 800;
             } else {
                 const errorParagraph = document.createElement('p');
                 errorParagraph.innerText = 'Este CEP não foi encontrado.';
                 $('.result').append(errorParagraph);
+                resultShowTime = 400;
             }
 
             // show results when user finish type the cep
-            $(() => {
+            setTimeout(() => {
+                $('.spinner-border').hide();
                 $('.result').show();
-            });
+            }, resultShowTime);
         },
         error: () => {
             $('.result').empty();
@@ -68,13 +70,12 @@ $('#cep-in').on('input', () => {
                 errorParagraph.innerText = 'Este CEP é inválido.';
                 $('.result').append(errorParagraph);
 
+                setTimeout(() => {
+                    $('.result').show();
+                }, 200);
+
                 $(() => {
                     $('.spinner-border').hide();
-                });
-            } else {
-                // hide results while user is typing
-                $(() => {
-                    $('.result').hide();
                 });
             }
         }
