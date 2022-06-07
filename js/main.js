@@ -16,17 +16,19 @@ $(() => {
     $('.spinner-border').hide();
 });
 
+$('.result').hide();
+
 $('#cep-in').on('input', () => {
-    $('.result').hide();
+    $('.result').hide(300);
 
     // show bootstrap spinner
     if ($('#cep-in').val().length !== 0) {
         $(() => {
-            $('.spinner-border').show();
+            $('.spinner-border').show(300);
         });
     } else {
         $(() => {
-            $('.spinner-border').hide();
+            $('.spinner-border').hide(300);
         });
     }
 
@@ -64,7 +66,7 @@ $('#cep-in').on('input', () => {
             // show results when user finish type the cep
             setTimeout(() => {
                 $('.spinner-border').hide();
-                $('.result').show();
+                $('.result').show(300);
             }, resultShowTime);
         },
         error: () => {
@@ -77,11 +79,11 @@ $('#cep-in').on('input', () => {
                 $('.result').append(errorParagraph);
 
                 setTimeout(() => {
-                    $('.result').show();
+                    $('.result').show(300);
                 }, 200);
 
                 $(() => {
-                    $('.spinner-border').hide();
+                    $('.spinner-border').hide(300);
                 });
             }
         }

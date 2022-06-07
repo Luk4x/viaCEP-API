@@ -104,3 +104,11 @@ main {
     width: 80px;
     height: 80px;
 }
+
+.result {
+    background: var(--cl2);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80vw;
+    margin: auto;
+}
