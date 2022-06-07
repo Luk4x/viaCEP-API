@@ -19,7 +19,7 @@ $(() => {
 $('.result').hide();
 
 $('#cep-in').on('input', () => {
-    $('.result').hide(300);
+    $('.result').hide(800);
 
     // show bootstrap spinner
     if ($('#cep-in').val().length !== 0) {
@@ -39,10 +39,12 @@ $('#cep-in').on('input', () => {
         url: `https://viacep.com.br/ws/${$('#cep-in').val()}/json/`,
         type: 'GET',
         success: cepData => {
-            $('.result').empty();
+            $('.viaCEP-api-data').empty();
+            $('.map').empty();
 
             let resultShowTime = 0;
             if (!cepData.erro) {
+                console.log(cepData);
                 // arranging the area for the data
                 $('.catch-data').toggleClass('catch-data-active');
                 $('.user-input').toggleClass('user-input-active');
@@ -52,34 +54,40 @@ $('#cep-in').on('input', () => {
                     if (cepData[data]) {
                         const cepDataParagraph = document.createElement('p');
                         cepDataParagraph.innerHTML = `<b>${data.toUpperCase()}</b>: ${cepData[data]}`;
-                        $('.result').append(cepDataParagraph);
+                        $('.viaCEP-api-data').append(cepDataParagraph);
                     }
                 }
+
+                const mapData = document.createElement('iframe');
+                $(mapData).attr({ id: 'map-iframe', src: `https://maps.google.com/maps?q=${cepData.localidade}&t=k&z=15&ie=UTF8&iwloc=&output=embed`, frameBorder: '0', scrolling: 'no', marginHeight: '0', marginWidth: '0' });
+                $('.map').append(mapData);
+
                 resultShowTime = 800;
             } else {
                 const errorParagraph = document.createElement('p');
                 errorParagraph.innerText = 'Este CEP não foi encontrado.';
-                $('.result').append(errorParagraph);
+                $('.viaCEP-api-data').append(errorParagraph);
                 resultShowTime = 400;
             }
 
             // show results when user finish type the cep
             setTimeout(() => {
                 $('.spinner-border').hide();
-                $('.result').show(300);
+                $('.result').show(resultShowTime);
             }, resultShowTime);
         },
         error: () => {
-            $('.result').empty();
+            $('.viaCEP-api-data').empty();
+            $('.map').empty();
 
             if ($('#cep-in').val().length > 8) {
                 // error message
                 const errorParagraph = document.createElement('p');
                 errorParagraph.innerText = 'Este CEP é inválido.';
-                $('.result').append(errorParagraph);
+                $('.viaCEP-api-data').append(errorParagraph);
 
                 setTimeout(() => {
-                    $('.result').show(300);
+                    $('.result').show(400);
                 }, 200);
 
                 $(() => {
