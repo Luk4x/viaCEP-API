@@ -12,11 +12,12 @@ body {
     --cl2: #323031;
     --cl3: #ffc857;
     --cl4: #db3a34;
-    --cl5: #084c61;
+    --cl5: #558b6e;
 }
 main {
-    background: linear-gradient(125deg, #db3a34, #084c61);
+    background: linear-gradient(135deg, var(--cl4), var(--cl5));
     height: 100vh;
+    z-index: -2;
 }
 
 .catch-data {
@@ -28,10 +29,10 @@ main {
     gap: 25px;
     padding: 6vh 0 10vh;
     transform: translateY(34vh);
-    -webkit-transition: all 0.5s 0.2s ease-in-out;
-    -moz-transition: all 0.5s 0.2s ease-in-out;
-    -o-transition: all 0.5s 0.2s ease-in-out;
-    transition: all 0.5s 0.2s ease-in-out;
+    -webkit-transition: all 0.5s 0.65 cubic-bezier(0.34, 1.56, 0.64, 1);
+    -moz-transition: all 0.5s 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+    -o-transition: all 0.5s 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.5s 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .catch-data-active {
@@ -46,10 +47,32 @@ main {
     align-items: center;
     gap: 4px;
     transform: scale(2.2);
+    -webkit-transition: all 0.5s 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+    -moz-transition: all 0.5s 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+    -o-transition: all 0.5s 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.5s 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.user-input::after {
+    content: '';
+    position: absolute;
+    font-size: 11px;
+    top: 58px;
+    opacity: 0;
     -webkit-transition: all 0.5s 0.2s ease-in-out;
     -moz-transition: all 0.5s 0.2s ease-in-out;
     -o-transition: all 0.5s 0.2s ease-in-out;
     transition: all 0.5s 0.2s ease-in-out;
+}
+
+.user-input.invalid::after {
+    content: 'Este CEP é inválido.';
+    opacity: 1;
+}
+
+.user-input.not-found::after {
+    content: 'Este CEP não foi encontrado.';
+    opacity: 1;
 }
 
 .user-input-active {
@@ -109,12 +132,22 @@ main {
     background: var(--cl2);
     border-radius: 10px;
     max-width: 80vw;
-    height: 55vh;
+    height: 60vh;
     margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    -webkit-transition: all 0.5s 0.5s ease-in-out;
+    -moz-transition: all 0.5s 0.5s ease-in-out;
+    -o-transition: all 0.5s 0.5s ease-in-out;
+    transition: all 0.5s 0.5s ease-in-out;
+    opacity: 0;
+    z-index: -1;
+}
+
+.result-active {
+    opacity: 1;
 }
 
 .viaCEP-api-data {
@@ -123,7 +156,7 @@ main {
     font-size: 2vw;
 }
 
-b {
+.viaCEP-api-data strong {
     color: var(--cl3);
 }
 
