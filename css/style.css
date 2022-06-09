@@ -14,6 +14,7 @@ body {
     --cl4: #db3a34;
     --cl5: #558b6e;
 }
+
 main {
     background: linear-gradient(135deg, var(--cl4), var(--cl5));
     height: 100vh;
@@ -62,11 +63,6 @@ main {
     -moz-transition: all 0.5s 0.2s ease-in-out;
     -o-transition: all 0.5s 0.2s ease-in-out;
     transition: all 0.5s 0.2s ease-in-out;
-}
-
-.user-input.invalid::after {
-    content: 'Este CEP é inválido.';
-    opacity: 1;
 }
 
 .user-input.not-found::after {
