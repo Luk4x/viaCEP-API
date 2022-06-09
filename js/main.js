@@ -68,7 +68,7 @@ $('#cep-in').on('input', () => {
         },
         error: () => {
             if ($('#cep-in').val().length > 8) {
-                $('.spinner-border').hide(0);
+                $('.spinner-border').hide();
                 $('.user-input').addClass('invalid'); // error message - api request error (invalid CEP request)
             }
         }
