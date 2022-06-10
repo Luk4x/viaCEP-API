@@ -166,3 +166,37 @@ main {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
+@media screen and (max-width: 1000px) {
+    .result {
+        flex-direction: column;
+        max-width: 80vw;
+        height: 70vh;
+    }
+
+    .viaCEP-api-data {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .map {
+        width: 100%;
+    }
+
+    #map-iframe {
+        width: 100%;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .result {
+        max-width: 90vw;
+    }
+
+    .viaCEP-api-data {
+        font-size: 16px;
+    }
+}

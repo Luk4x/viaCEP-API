@@ -1,5 +1,5 @@
 // input focus keys (; and /)
-$(document.documentElement).keypress(keyP => {
+$(document).keypress(keyP => {
     if (keyP.key == ';' || keyP.key === '/') {
         $('#cep-in').focus();
     }
@@ -44,7 +44,6 @@ $('#cep-in').on('input change', () => {
         type: 'GET',
         success: cepData => {
             if (!cepData.erro) {
-                console.log(cepData);
                 // arranging the result area for the CEP data
                 $('.catch-data').addClass('catch-data-active');
                 $('.user-input').addClass('user-input-active');
@@ -69,9 +68,8 @@ $('#cep-in').on('input change', () => {
                 }, []);
 
                 // showing results
-                if (cepDataAmount.length > 7) $('.viaCEP-api-data').css('font-size', '1.7vw');
-                else $('.viaCEP-api-data').css('font-size', '2vw'); // change font-size based on cep data amount
-
+                // change font-size based on cep data amount
+                if (cepDataAmount.length > 7 && $(document).width() > 1000) $('.viaCEP-api-data').css('font-size', '1.7vw');
                 $('.spinner-border').delay(600).hide(0);
                 $('.result').show().addClass('result-active');
             } else {
