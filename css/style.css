@@ -46,7 +46,7 @@ main {
     justify-content: center;
     align-items: center;
     gap: 4px;
-    transform: scale(2.2);
+    transform: scale(var(--vw-scale));
     -webkit-transition: all 0.5s 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
     -moz-transition: all 0.5s 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
     -o-transition: all 0.5s 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -71,7 +71,7 @@ main {
 }
 
 .user-input-active {
-    transform: scale(1.4);
+    transform: scale(var(--vw-unScale));
 }
 
 #cep-in {
@@ -80,10 +80,10 @@ main {
     color: var(--cl1);
     font-size: 32px;
     border-bottom: 1px solid #c1cad67e;
+    border-radius: 4px;
     text-align: center;
     transition: 0.5s ease-in-out;
     position: relative;
-    left: -28px;
 }
 
 .bx-search {
@@ -91,8 +91,7 @@ main {
     font-size: 56px;
     position: relative;
     transition: 0.5s ease-in-out;
-    top: 5px;
-    left: -28px;
+    top: 3px;
 }
 
 .bx-search-active {
