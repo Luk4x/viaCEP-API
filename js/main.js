@@ -5,11 +5,6 @@ const viewWidthUnscaled = (1 / 400) * Math.min(window.innerWidth, window.innerHe
 document.documentElement.style.setProperty('--vw-scale', viewWidthScaled);
 document.documentElement.style.setProperty('--vw-unScale', viewWidthUnscaled);
 
-$(window).resize(() => {
-    document.documentElement.style.setProperty('--vw-scale', viewWidthScaled);
-    document.documentElement.style.setProperty('--vw-unScale', viewWidthUnscaled);
-});
-
 // input focus keys (; and /)
 $(document).keypress(keyP => {
     if (keyP.key == ';' || keyP.key === '/') {
@@ -31,7 +26,7 @@ $('.spinner-border').hide();
 // masking input
 $('#cep-in').mask('00000-000');
 
-$('#cep-in').on('input change', () => {
+$('#cep-in').on('input', () => {
     // general things to reset on user input
     $('.viaCEP-api-data').empty();
     $('.map').empty();

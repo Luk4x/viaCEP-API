@@ -18,6 +18,7 @@ body {
 .container-fluid {
     background: linear-gradient(135deg, var(--cl4), var(--cl5));
     height: 100vh;
+    position: relative;
 }
 
 .catch-data {
@@ -30,7 +31,7 @@ body {
 }
 
 .catch-data-active {
-    transform: translateY(0);
+    transform: translateY(2vh);
 }
 
 .user-input {
@@ -150,6 +151,54 @@ body {
     border-bottom-right-radius: 10px;
 }
 
+.socials {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+}
+
+.btn-dark {
+    color: var(--cl3);
+    border: none;
+    outline: none;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    position: relative;
+    padding: 1px;
+    font-size: 70px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-dark:hover,
+.btn-dark:active,
+.btn-dark:focus,
+.btn-dark.bx.active {
+    color: var(--cl3) !important;
+}
+
+.links-list {
+    list-style-type: none;
+    padding: 5px 0;
+    background: var(--cl3);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.links-list-item a i {
+    font-size: 60px;
+    margin: 0 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: var(--cl2);
+}
+
+.links-list-item a i:hover {
+    transform: translateY(-3px) scale(1.2);
+}
+
 @media screen and (max-width: 1000px) {
     .result {
         flex-direction: column;
@@ -172,6 +221,14 @@ body {
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
     }
+
+    .btn-dark {
+        font-size: 50px;
+    }
+
+    .links-list-item a i {
+        font-size: 40px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -181,5 +238,15 @@ body {
 
     .viaCEP-api-data {
         font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .btn-dark {
+        font-size: 40px;
+    }
+
+    .links-list-item a i {
+        font-size: 30px;
     }
 }
