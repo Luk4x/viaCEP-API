@@ -118,6 +118,9 @@ body {
 }
 
 .result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: var(--cl2);
     border-radius: 10px;
     max-width: 80vw;
