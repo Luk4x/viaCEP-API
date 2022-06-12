@@ -1,9 +1,11 @@
 // scale input according to device view width
-const viewWidthScaled = (1.4 / 400) * Math.min(window.innerWidth, window.innerHeight);
-const viewWidthUnscaled = (1 / 400) * Math.min(window.innerWidth, window.innerHeight);
+$(window).on('load resize', () => {
+    const viewWidthScaled = (1.4 / 400) * Math.min(window.innerWidth, window.innerHeight);
+    const viewWidthUnscaled = (1 / 400) * Math.min(window.innerWidth, window.innerHeight);
 
-document.documentElement.style.setProperty('--vw-scale', viewWidthScaled);
-document.documentElement.style.setProperty('--vw-unScale', viewWidthUnscaled);
+    document.documentElement.style.setProperty('--vw-scale', viewWidthScaled);
+    document.documentElement.style.setProperty('--vw-unScale', viewWidthUnscaled);
+});
 
 // input focus keys (; and /)
 $(document).keypress(keyP => {
