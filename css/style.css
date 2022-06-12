@@ -15,18 +15,12 @@ body {
     --cl5: #558b6e;
 }
 
-main {
+.container-fluid {
     background: linear-gradient(135deg, var(--cl4), var(--cl5));
     height: 100vh;
 }
 
 .catch-data {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
     padding: 6vh 0 10vh;
     transform: translateY(34vh);
     -webkit-transition: all 0.5s 0.65 cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -125,14 +119,8 @@ main {
 .result {
     background: var(--cl2);
     border-radius: 10px;
-    position: relative;
     max-width: 80vw;
-    height: 60vh;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    height: 65vh;
     -webkit-transition: all 0.5s 0.5s ease-in-out;
     -moz-transition: all 0.5s 0.5s ease-in-out;
     -o-transition: all 0.5s 0.5s ease-in-out;
@@ -153,10 +141,6 @@ main {
 
 .viaCEP-api-data strong {
     color: var(--cl3);
-}
-
-.map {
-    height: 100%;
 }
 
 #map-iframe {

@@ -17,8 +17,8 @@
         <title>ViaCEP</title>
     </head>
     <body>
-        <main>
-            <section class="catch-data">
+        <main class="container-fluid">
+            <section class="catch-data align-items-center justify-content-center gap-sm-5 d-flex flex-column position-relative">
                 <div class="user-input">
                     <label for="cep-in">
                         <i class="bx bx-search"></i>
@@ -29,9 +29,13 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </section>
-            <section class="result">
-                <div class="viaCEP-api-data"></div>
-                <div class="map"></div>
+            <section class="result d-flex position-relative align-items-center justify-content-around m-auto">
+                <div class="viaCEP-api-data">
+                    <!-- API data from JS -->
+                </div>
+                <div class="map h-100">
+                    <!-- Map data from JS -->
+                </div>
             </section>
         </main>
 
