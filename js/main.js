@@ -53,13 +53,14 @@ $('#cep-in').on('input', () => {
         type: 'GET',
         success: cepData => {
             if (!cepData.erro) {
+                console.log(cepData);
                 // arranging the result area for the CEP data
                 $('.catch-data').addClass('catch-data-active');
                 $('.user-input').addClass('user-input-active');
 
                 // inserting cep data on html
                 for (let data in cepData) {
-                    if (cepData[data]) {
+                    if (cepData[data] && data !== 'logradouro' && data !== 'complemento' && data !== 'gia') {
                         const cepDataParagraph = document.createElement('p');
                         cepDataParagraph.innerHTML = `<strong>${data.toUpperCase()}</strong>: ${cepData[data]}`;
                         $('.viaCEP-api-data').append(cepDataParagraph);
@@ -71,14 +72,7 @@ $('#cep-in').on('input', () => {
                 $(mapData).attr({ id: 'map-iframe', src: `https://maps.google.com/maps?q=${cepData.siafi} ${cepData.localidade}, ${cepData.uf}&t=k&z=15&ie=UTF8&iwloc=&output=embed`, frameBorder: '0', scrolling: 'no', marginHeight: '0', marginWidth: '0' });
                 $('.map').append(mapData);
 
-                // getting cep data amount
-                const cepDataAmount = Object.values(cepData).filter(data => {
-                    return data !== '';
-                }, []);
-
                 // showing results
-                // change font-size based on cep data amount
-                if (cepDataAmount.length > 7 && $(document).width() > 1000) $('.viaCEP-api-data').css('font-size', '1.7vw');
                 $('.spinner-border').delay(600).hide(0);
                 $('.result').show().addClass('result-active');
             } else {
