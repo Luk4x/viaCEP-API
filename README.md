@@ -22,7 +22,7 @@
 
 ## Sobre
 o viaCEP se consiste no consumo da API do [ViaCEP](https://viacep.com.br/), e com base nos dados recebidos mostra uma referência no Google Maps.<br>
-Feito com <b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, <b>JQuery</b> e <b>Bootstrap</b>, meu objetivo foi criar um projeto simples para fixar melhor alguns conhecimentos de Bootstrap — tecnologia essa qual me introduzi no objetivo de me aprofundar melhor futuramente — e aproveitei para sair da minha zona de conforto, usando JQuery.
+Desenvolvido com <b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, <b>JQuery</b> e <b>Bootstrap</b>, meu objetivo foi criar um projeto simples para fixar melhor alguns conhecimentos de Bootstrap — tecnologia essa qual me introduzi no objetivo de me aprofundar melhor futuramente — e aproveitei para sair da minha zona de conforto, usando JQuery.
 <br>
 <br>
 
