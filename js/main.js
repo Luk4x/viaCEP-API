@@ -53,26 +53,29 @@ $('#cep-in').on('input', () => {
         type: 'GET',
         success: cepData => {
             if (!cepData.erro) {
-                console.log(cepData);
-                // arranging the result area for the CEP data
-                $('.catch-data').addClass('catch-data-active');
-                $('.user-input').addClass('user-input-active');
+                console.table(cepData);
 
-                // inserting cep data on html
-                for (let data in cepData) {
-                    if (cepData[data] && data !== 'logradouro' && data !== 'complemento' && data !== 'gia') {
-                        const cepDataParagraph = document.createElement('p');
-                        cepDataParagraph.innerHTML = `<strong>${data.toUpperCase()}</strong>: ${cepData[data]}`;
-                        $('.viaCEP-api-data').append(cepDataParagraph);
+                // inserting cep data on html (IIFE function)
+                (insertCepData = cepData => {
+                    for (let data in cepData) {
+                        if (cepData[data] && data !== 'logradouro' && data !== 'complemento' && data !== 'gia') {
+                            const cepDataParagraph = document.createElement('p');
+                            cepDataParagraph.innerHTML = `<strong>${data.toUpperCase()}</strong>: ${cepData[data]}`;
+                            $('.viaCEP-api-data').append(cepDataParagraph);
+                        }
                     }
-                }
+                })(cepData);
 
-                // inserting map iframe based on CEP data on html
-                const mapData = document.createElement('iframe');
-                $(mapData).attr({ id: 'map-iframe', src: `https://maps.google.com/maps?q=${cepData.siafi} ${cepData.localidade}, ${cepData.uf}&t=k&z=15&ie=UTF8&iwloc=&output=embed`, frameBorder: '0', scrolling: 'no', marginHeight: '0', marginWidth: '0' });
-                $('.map').append(mapData);
+                // inserting map iframe based on CEP data on html (IIFE function)
+                (insertMap = cepData => {
+                    const mapData = document.createElement('iframe');
+                    $(mapData).attr({ id: 'map-iframe', src: `https://maps.google.com/maps?q=${cepData.siafi} ${cepData.localidade}, ${cepData.uf}&t=k&z=15&ie=UTF8&iwloc=&output=embed`, frameBorder: '0', scrolling: 'no', marginHeight: '0', marginWidth: '0' });
+                    $('.map').append(mapData);
+                })(cepData);
 
                 // showing results
+                $('.catch-data').addClass('catch-data-active');
+                $('.user-input').addClass('user-input-active');
                 $('.spinner-border').delay(600).hide(0);
                 $('.result').show().addClass('result-active');
             } else {
