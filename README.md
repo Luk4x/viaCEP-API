@@ -71,7 +71,8 @@ Feito isso, no terminal:
 > cd viaCEP-API
 
 # Execute o projeto com:
-> ?
+> start index.html # Para usários de Windows
+> open index.html # Para usuários de Linux/Mac
 ```
 
 ## 🤝 Contato dos Contribuintes
