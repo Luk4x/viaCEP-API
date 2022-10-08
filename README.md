@@ -45,7 +45,7 @@
 
 > Assistir o vídeo acima e/ou acessar o projeto online ajudará na compreensão da explicação!
 
-O viaCEP, como o nome sugere, é um projeto de consulta de CEP, onde faço o consumo da [API](https://viacep.com.br/) dos correios, e com base nos dados recebidos, mostro uma referência no Google Maps.
+O viaCEP, como o nome sugere, é uma aplicação web de consulta de CEP, onde faço o consumo da [API](https://viacep.com.br/) dos correios, e com base nos dados recebidos, mostro uma referência no Google Maps.
 <br>
 Desenvolvido com <b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, <b>JQuery</b> e <b>Bootstrap</b>, meu objetivo ao desenvolvê-lo foi de criar um projeto simples para fixar melhor determinados conhecimentos sobre Bootstrap e JQuery.
 
