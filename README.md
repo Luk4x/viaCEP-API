@@ -45,16 +45,16 @@
 
 > Assistir o vídeo acima e/ou acessar o projeto online ajudará na compreensão da explicação!
 
-o viaCEP, como o nome sugere, é um projeto de consulta de CEP, onde faço o consumo da [API](https://viacep.com.br/) dos correios, e com base nos dados recebidos, mostro uma referência no Google Maps.
+O viaCEP, como o nome sugere, é um projeto de consulta de CEP, onde faço o consumo da [API](https://viacep.com.br/) dos correios, e com base nos dados recebidos, mostro uma referência no Google Maps.
 <br>
-Desenvolvido com <b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, <b>JQuery</b> e <b>Bootstrap</b>, meu objetivo ao desenvolve-lo foi de criar um projeto simples para fixar melhor determinados conhecimentos sobre Bootstrap e JQuery.
+Desenvolvido com <b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, <b>JQuery</b> e <b>Bootstrap</b>, meu objetivo ao desenvolvê-lo foi de criar um projeto simples para fixar melhor determinados conhecimentos sobre Bootstrap e JQuery.
 
 ### 📌 Alguns Destaques
 
-- Utilização de váriaveis CSS e manipulação das mesmas via Javascript para auxiliar na responsividade;
-- O Loader e o Botão de redes sociais foram feitos com o auxilio do Bootstrap;
+- Utilização de variáveis CSS e manipulação das mesmas via Javascript para auxiliar na responsividade;
+- O Loader e o Botão de redes sociais foram feitos com o auxílio do Bootstrap;
 - Fiz um pequeno mapeamento de teclas com a `;` apenas para focar no Input;
-- A maior parte das animações e pouco da responsividade foram feitos com o auxilio do JQuery;
+- A maioria das animações e pouco da responsividade foram feitos com o auxílio do JQuery;
 - Utilizei JQuery-Ajax para fazer o consumo da API;
 - Utilizei o JQuery Mask Plugin para formatar o campo de Input;
 
@@ -71,7 +71,7 @@ Feito isso, no terminal:
 > cd viaCEP-API
 
 # Execute o projeto com:
-> start index.html # Para usários de Windows
+> start index.html # Para usuários de Windows
 > open index.html # Para usuários de Linux/Mac
 ```
 
