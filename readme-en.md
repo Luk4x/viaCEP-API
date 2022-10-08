@@ -45,7 +45,7 @@
 
 > Watching the video above and/or accessing the project online will help you understand the explanation!
 
-viaCEP, as the name suggests, is a CEP consultation project, where I consume the [API](https://viacep.com.br/) of the post office, and based on the data received, I show a reference in the Google Maps.
+The viaCEP, as the name suggests, is a CEP query web application, where I consume the [API](https://viacep.com.br/) of the post office, and based on the data received, I show a reference in the Google Maps.
 <br>
 Developed with <b>HTML</b>, <b>CSS</b>, <b>Javascript</b>, <b>JQuery</b> and <b>Bootstrap</b>, my goal when developing it was to create a simple project to better establish certain knowledge about Bootstrap and JQuery.
 
